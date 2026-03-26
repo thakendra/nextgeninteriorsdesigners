@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Portfolio | Nextgen Interiors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#369fce;--blue-2:#3e9fc9;--blue-dark:#2969a6;--blue-pale:rgba(54,159,206,.12);--blue-glow:rgba(54,159,206,.25);--dark:#080c10;--dark-2:#0d1318;--dark-3:#111920;--text:#e8edf2;--muted:#7a8fa0;--white:#fff;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',sans-serif}
+html{scroll-behavior:smooth}body{font-family:var(--sans);background:var(--dark);color:var(--text);overflow-x:hidden;cursor:none}
+#cursor{position:fixed;width:9px;height:9px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .15s}
+#cursor-ring{position:fixed;width:34px;height:34px;border:1px solid var(--blue-glow);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
+nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:1.2rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s}
+nav.scrolled{background:rgba(8,12,16,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(54,159,206,.15)}
+.nav-logo-wrap{display:flex;align-items:center;text-decoration:none}.nav-logo-svg{height:36px;width:auto}
+.nav-links{display:flex;gap:2.4rem;list-style:none;align-items:center}
+.nav-links a{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-weight:500;position:relative;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:1px;background:var(--blue);transition:width .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--blue)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-phone{font-size:.75rem;color:var(--blue);letter-spacing:.08em;text-decoration:none;font-weight:500;border:1px solid var(--blue-glow);padding:.42rem 1rem;transition:background .3s}.nav-phone:hover{background:var(--blue-pale)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}.hamburger span{width:24px;height:1px;background:var(--text);display:block}
+.mobile-menu{position:fixed;inset:0;background:rgba(8,12,16,.98);z-index:199;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity .4s}
+.mobile-menu.open{opacity:1;pointer-events:all}.mobile-menu a{font-family:var(--serif);font-size:2.4rem;font-weight:300;color:var(--text);text-decoration:none;transition:color .3s}.mobile-menu a:hover{color:var(--blue)}.mobile-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--blue);font-size:1.6rem;cursor:pointer}
+.page-hero{padding:10rem 0 6rem;background:var(--dark-2);position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(54,159,206,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(54,159,206,.03) 1px,transparent 1px);background-size:60px 60px}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue-glow),transparent)}
+.container{max-width:1280px;margin:0 auto;padding:0 3rem}
+.breadcrumb{display:flex;align-items:center;gap:.6rem;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+.breadcrumb a{color:var(--blue);text-decoration:none}
+.page-title{font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:300;color:var(--white);line-height:1.05}
+.page-title em{font-style:italic;color:var(--blue)}
+.page-sub{font-size:.9rem;color:var(--muted);margin-top:1rem;max-width:560px;line-height:1.75;font-weight:300}
+section{padding:6rem 0}
+.section-tag{display:inline-flex;align-items:center;gap:.8rem;font-size:.67rem;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:.9rem}
+.section-tag::before{content:'';width:28px;height:1px;background:var(--blue)}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.4rem);font-weight:300;line-height:1.15;color:var(--white)}
+.section-title em{font-style:italic;color:var(--blue)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+.btn-primary{padding:.85rem 2.4rem;background:var(--blue);color:var(--white);font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-block}.btn-primary:hover{background:var(--blue-2);transform:translateY(-2px)}
+.btn-outline{padding:.85rem 2.4rem;border:1px solid var(--blue-glow);color:var(--blue);font-size:.74rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-block}.btn-outline:hover{border-color:var(--blue);background:var(--blue-pale)}
+footer{background:var(--dark);border-top:1px solid rgba(54,159,206,.1);padding:3rem 0 2rem}
+.footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.75rem;color:var(--muted)}
+.footer-links-row{display:flex;gap:2rem}.footer-links-row a{font-size:.75rem;color:var(--muted);text-decoration:none;transition:color .3s}.footer-links-row a:hover{color:var(--blue)}
+/* portfolio grid */
+.portfolio-filter{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:3rem}
+.filter-btn{padding:.5rem 1.4rem;border:1px solid rgba(54,159,206,.2);background:transparent;color:var(--muted);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-family:var(--sans)}
+.filter-btn.active,.filter-btn:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-pale)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.portfolio-card{position:relative;overflow:hidden;background:var(--dark-2);border:1px solid rgba(54,159,206,.07);transition:border-color .3s}
+.portfolio-card:hover{border-color:rgba(54,159,206,.3)}
+.portfolio-img{aspect-ratio:4/3;overflow:hidden}
+.portfolio-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s,opacity .5s;opacity:.8}
+.portfolio-card:hover .portfolio-img img{transform:scale(1.07);opacity:.6}
+.portfolio-info{padding:1.4rem}
+.portfolio-cat{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:.4rem}
+.portfolio-name{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--white)}
+.portfolio-loc{font-size:.78rem;color:var(--muted);margin-top:.3rem}
+/* service detail */
+#navbar .logo{
+  display:flex;
+  align-items:center;
+  flex-shrink:0;   /* 🔥 MAIN FIX */
+}
+
+#navbar .logo img{
+  height:45px;
+  width:auto;
+  min-width:120px; /* fallback */
+  display:block;
+}
+.service-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-bottom:6rem}
+.service-detail-grid.alt{direction:rtl}.service-detail-grid.alt>*{direction:ltr}
+.service-detail-img{aspect-ratio:4/3;overflow:hidden;position:relative}
+.service-detail-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.service-detail-img:hover img{transform:scale(1.04)}
+.service-detail-img::after{content:'';position:absolute;inset:0;border:1px solid rgba(54,159,206,.15);pointer-events:none}
+.service-detail-text .section-tag::before{display:none}
+.service-detail-text p{font-size:.93rem;line-height:1.85;color:rgba(232,237,242,.65);font-weight:300;margin-bottom:1.2rem}
+.feature-list{list-style:none;margin-top:1.5rem}
+.feature-list li{padding:.6rem 0;border-bottom:1px solid rgba(54,159,206,.08);font-size:.88rem;color:var(--muted);display:flex;align-items:center;gap:.8rem;font-weight:300}
+.feature-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
+/* blog */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.blog-card{background:var(--dark-2);border:1px solid rgba(54,159,206,.07);overflow:hidden;transition:border-color .3s}
+.blog-card:hover{border-color:rgba(54,159,206,.3)}
+.blog-img{aspect-ratio:16/9;overflow:hidden}
+.blog-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s,opacity .4s;opacity:.8}
+.blog-card:hover .blog-img img{transform:scale(1.06);opacity:.6}
+.blog-body{padding:1.6rem}
+.blog-meta{display:flex;gap:1rem;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.8rem}
+.blog-title{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--white);line-height:1.3;margin-bottom:.8rem}
+.blog-excerpt{font-size:.84rem;line-height:1.7;color:var(--muted);font-weight:300}
+.blog-read{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);text-decoration:none;margin-top:1.2rem;transition:gap .3s}
+.blog-read:hover{gap:.9rem}
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contact-form input,.contact-form textarea,.contact-form select{width:100%;background:rgba(54,159,206,.05);border:1px solid rgba(54,159,206,.15);color:var(--text);padding:.9rem 1.2rem;font-family:var(--sans);font-size:.88rem;font-weight:300;outline:none;transition:border-color .3s;margin-bottom:1.2rem;-webkit-appearance:none}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:var(--blue)}
+.contact-form textarea{height:140px;resize:vertical}
+.contact-form select option{background:var(--dark-2);color:var(--text)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.contact-info-item{display:flex;gap:1.2rem;margin-bottom:2rem;align-items:flex-start}
+.ci-icon-box{width:44px;height:44px;border:1px solid var(--blue-glow);display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:1rem;flex-shrink:0}
+.ci-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:.3rem}
+.ci-val{font-size:.9rem;color:var(--text);font-weight:300;line-height:1.5}
+.ci-val a{color:var(--text);text-decoration:none}
+.map-embed{width:100%;height:300px;border:1px solid rgba(54,159,206,.15);margin-top:2rem;filter:grayscale(30%) invert(90%) hue-rotate(180deg)}
+@media(max-width:1024px){.portfolio-grid{grid-template-columns:repeat(2,1fr)}.blog-grid{grid-template-columns:repeat(2,1fr)}.service-detail-grid{grid-template-columns:1fr;gap:2.5rem}.service-detail-grid.alt{direction:ltr}.contact-grid{grid-template-columns:1fr}.container{padding:0 2rem}nav{padding:1.1rem 2rem}}
+@media(max-width:768px){nav{padding:1rem 1.4rem}.nav-links,.nav-phone{display:none}.hamburger{display:flex}.container{padding:0 1.4rem}.portfolio-grid,.blog-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.page-hero{padding:8rem 0 4rem}}
+
+.portfolio-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1.5rem}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<!-- NAV -->
+<nav id="navbar">
+
+  <a href="index.html" class="logo">
+    <img src="pictures/logo/logo-white.svg" alt="NextGen Interiors and Architectures logo">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="/about/index.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html"class="active">Portfolio</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" >Contact</a></li>
+  </ul>
+
+  <a class="nav-phone" href="tel:9849151220">+977 9849151220</a>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+  <a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
+
+<div class="page-hero"><div class="container">
+  <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Portfolio</span></div>
+  <h1 class="page-title">Our <em>Work</em></h1>
+  <p class="page-sub">Browse our portfolio of completed projects — from luxury hotels to private residences, each one crafted with precision and passion.</p>
+</div></div>
+
+<section style="background:var(--dark)"><div class="container">
+  <div class="portfolio-header reveal">
+    <div>
+      <div class="section-tag">All Projects</div>
+      <h2 class="section-title">Past Works & <em>Success Stories</em></h2>
+    </div>
+    <div class="portfolio-filter">
+      <button class="filter-btn active" onclick="filterPortfolio(this,'all')">All</button>
+      <button class="filter-btn" onclick="filterPortfolio(this,'Hotel')">Hotels</button>
+      <button class="filter-btn" onclick="filterPortfolio(this,'Residential')">Residential</button>
+      <button class="filter-btn" onclick="filterPortfolio(this,'Commercial')">Commercial</button>
+      <button class="filter-btn" onclick="filterPortfolio(this,'Interior')">Interior</button>
+      <button class="filter-btn" onclick="filterPortfolio(this,'Architecture')">Architecture</button>
+      <button class="filter-btn" onclick="filterPortfolio(this,'Landscaping')">Landscaping</button>
+      <button class="filter-btn" onclick="filterPortfolio(this,'Turnkey')">Turnkey</button>
+    </div>
+  </div>
+  <div class="portfolio-grid" id="portfolioGrid"><div class="portfolio-card reveal" data-cat="Hotel">
+  <div class="portfolio-img"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=75" alt="Hotel Sweet Purnima" loading="lazy" width="600" height="450"></div>
+  <div class="portfolio-info"><div class="portfolio-cat">Hotel</div><div class="portfolio-name">Hotel Sweet Purnima</div><div class="portfolio-loc">📍 Kathmandu</div></div>
+</div><div class="portfolio-card reveal" data-cat="Hotel">
+  <div class="portfolio-img"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=600&q=75" alt="Gautam Hotel Bardibas" loading="lazy" width="600" height="450"></div>
+  <div class="portfolio-info"><div class="portfolio-cat">Hotel</div><div class="portfolio-name">Gautam Hotel Bardibas</div><div class="portfolio-loc">📍 Bardibas</div></div>
+</div><div class="portfolio-card reveal" data-cat="Hotel">
+  <div class="portfolio-img"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=75" alt="Hotel Aashiyana" loading="lazy" width="600" height="450"></div>
+  <div class="portfolio-info"><div class="portfolio-cat">Hotel</div><div class="portfolio-name">Hotel Aashiyana</div><div class="portfolio-loc">📍 Kathmandu</div></div>
+</div><div class="portfolio-card reveal" data-cat="Residential">
+  <div class="portfolio-img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=75" alt="Modern Residence" loading="lazy" width="600" height="450"></div>
+  <div class="portfolio-info"><div class="portfolio-cat">Residential</div><div class="portfolio-name">Modern Residence</div><div class="portfolio-loc">📍 Lalitpur</div></div>
+</div><div class="portfolio-card reveal" data-cat="Commercial">
+  <div class="portfolio-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=75" alt="Corporate Office" loading="lazy" width="600" height="450"></div>
+  <div class="portfolio-info"><div class="portfolio-cat">Commercial</div><div class="portfolio-name">Corporate Office</div><div class="portfolio-loc">📍 Kathmandu</div></div>
+</div><div class="portfolio-card reveal" data-cat="Interior">
+  <div class="portfolio-img"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=75" alt="Sky Villa Interior" loading="lazy" width="600" height="450"></div>
+  <div class="portfolio-info"><div class="portfolio-cat">Interior</div><div class="portfolio-name">Sky Villa Interior</div><div class="portfolio-loc">📍 Pokhara</div></div>
+</div><div class="portfolio-card reveal" data-cat="Commercial">
+  <div class="portfolio-img"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=75" alt="Restaurant & Cafe" loading="lazy" width="600" height="450"></div>
+  <div class="portfolio-info"><div class="portfolio-cat">Commercial</div><div class="portfolio-name">Restaurant & Cafe</div><div class="portfolio-loc">📍 Kathmandu</div></div>
+</div><div class="portfolio-card reveal" data-cat="Landscaping">
+  <div class="portfolio-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" alt="Garden Landscape" loading="lazy" width="600" height="450"></div>
+  <div class="portfolio-info"><div class="portfolio-cat">Landscaping</div><div class="portfolio-name">Garden Landscape</div><div class="portfolio-loc">📍 Bhaktapur</div></div>
+</div><div class="portfolio-card reveal" data-cat="Architecture">
+  <div class="portfolio-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=75" alt="Exterior Facade" loading="lazy" width="600" height="450"></div>
+  <div class="portfolio-info"><div class="portfolio-cat">Architecture</div><div class="portfolio-name">Exterior Facade</div><div class="portfolio-loc">📍 Kathmandu</div></div>
+</div><div class="portfolio-card reveal" data-cat="Interior">
+  <div class="portfolio-img"><img src="https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?w=600&q=75" alt="Penthouse Suite" loading="lazy" width="600" height="450"></div>
+  <div class="portfolio-info"><div class="portfolio-cat">Interior</div><div class="portfolio-name">Penthouse Suite</div><div class="portfolio-loc">📍 Kathmandu</div></div>
+</div><div class="portfolio-card reveal" data-cat="Turnkey">
+  <div class="portfolio-img"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=75" alt="Turnkey Bungalow" loading="lazy" width="600" height="450"></div>
+  <div class="portfolio-info"><div class="portfolio-cat">Turnkey</div><div class="portfolio-name">Turnkey Bungalow</div><div class="portfolio-loc">📍 Chitwan</div></div>
+</div><div class="portfolio-card reveal" data-cat="Commercial">
+  <div class="portfolio-img"><img src="https://images.unsplash.com/photo-1478144592103-25e218a04891?w=600&q=75" alt="Shopping Complex" loading="lazy" width="600" height="450"></div>
+  <div class="portfolio-info"><div class="portfolio-cat">Commercial</div><div class="portfolio-name">Shopping Complex</div><div class="portfolio-loc">📍 Pokhara</div></div>
+</div></div>
+</div></section>
+<section style="background:var(--dark-2);padding:5rem 0;text-align:center">
+  <div class="container reveal">
+    <h2 class="section-title" style="margin-bottom:1rem">Have a Project <em>In Mind?</em></h2>
+    <p style="color:var(--muted);max-width:440px;margin:0 auto 2.5rem;font-size:.9rem;line-height:1.75;font-weight:300">Let's make it a success story in our next portfolio update.</p>
+    <a href="contact.html" class="btn-primary">Start Your Project</a>
+  </div>
+</section>
+<script>
+function filterPortfolio(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.portfolio-card').forEach(card=>{
+    const show = cat==='all' || card.dataset.cat===cat;
+    card.style.display = show ? '' : 'none';
+  });
+}
+</script>
+
+<footer><div class="container"><div class="footer-row"><p class="footer-copy">© 2025 All Rights Reserved — NextGen Interior Pvt. Ltd. | Baluwatar, Kathmandu, Nepal</p><div class="footer-links-row"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div></div></div></footer>
+<script>
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function a(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+document.querySelectorAll('a,button,.portfolio-card,.blog-card').forEach(el=>{el.addEventListener('mouseenter',()=>cur.style.transform='translate(-50%,-50%) scale(2.8)');el.addEventListener('mouseleave',()=>cur.style.transform='translate(-50%,-50%) scale(1)');});
+const nb=document.getElementById('navbar');
+window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',scrollY>60),{passive:true});
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),+e.target.dataset.d||0);obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.dataset.d=(i%4)*100;obs.observe(el);});
+</script>
+</body>
+</html>
