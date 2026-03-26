@@ -1,4 +1,10 @@
 {
+  "redirects": [
+    { "source": "/services.html", "destination": "/services", "permanent": true },
+    { "source": "/blog.html", "destination": "/blog", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/portfolio.html", "destination": "/portfolio", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/services", "destination": "/Services/index.html" },
     { "source": "/blog", "destination": "/Blogs/index.html" },
