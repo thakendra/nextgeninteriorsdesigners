@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Modern House Design in Nepal | Nextgen Interiors</title>
+<meta name="description" content="NextGen Interiors - Top interior design and architecture company in Nepal. Crafting visions, building dreams from Kathmandu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#369fce;--blue-2:#3e9fc9;--blue-dark:#2969a6;
+  --blue-pale:rgba(54,159,206,.1);--blue-glow:rgba(54,159,206,.22);
+  --dark:#07090d;--dark-2:#0c1017;--dark-3:#10161e;
+  --text:#e2e8f0;--muted:#6b8599;--white:#fff;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--dark);color:var(--text);overflow-x:hidden;cursor:none}
+
+/* ── CURSOR ── */
+#cur{position:fixed;width:8px;height:8px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .18s,width .25s,height .25s}
+#cur-r{position:fixed;width:32px;height:32px;border:1px solid var(--blue-glow);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
+body:has(a:hover) #cur,body:has(button:hover) #cur{transform:translate(-50%,-50%) scale(3);background:var(--blue-pale);border:1px solid var(--blue)}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;width:100%;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;gap:1rem;transition:all .5s}
+nav.s{background:rgba(7,9,13,.95);backdrop-filter:blur(20px);padding:1rem 3.5rem;border-bottom:1px solid rgba(54,159,206,.12)}
+.logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.logo svg{height:34px;width:auto}
+.logo img{
+  height: 50px;   /* adjust if needed */
+  width: auto;
+  display: block;
+}
+.nl{display:flex;gap:0;list-style:none;align-items:center}
+.nl li a{display:block;padding:.5rem 1.2rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-weight:500;position:relative;transition:color .3s}
+.nl li a::after{content:'';position:absolute;bottom:0;left:1.2rem;right:1.2rem;height:1px;background:var(--blue);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.nl li a:hover,.nl li a.on{color:var(--white)}.nl li a:hover::after,.nl li a.on::after{transform:scaleX(1)}
+.nav-cta{display:flex;align-items:center;gap:1rem}
+.nav-tel{font-size:.72rem;color:var(--blue);letter-spacing:.06em;text-decoration:none;font-weight:600}
+.nav-btn{padding:.45rem 1.3rem;background:var(--blue);color:var(--white);font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.nav-btn:hover{background:var(--blue-dark)}
+.hbg{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:.3rem}
+.hbg span{width:22px;height:1px;background:var(--text);display:block;transition:all .3s}
+
+/* ── MOBILE MENU ── */
+.mm{position:fixed;inset:0;background:rgba(7,9,13,.98);z-index:299;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;opacity:0;pointer-events:none;transition:opacity .4s}
+.mm.open{opacity:1;pointer-events:all}
+.mm a{font-family:var(--serif);font-size:clamp(2rem,6vw,3rem);font-weight:300;color:rgba(232,237,242,.6);text-decoration:none;padding:.6rem 0;transition:color .3s;letter-spacing:.02em}
+.mm a:hover{color:var(--blue)}
+.mm-close{position:absolute;top:1.8rem;right:2.5rem;background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;transition:color .3s}
+.mm-close:hover{color:var(--blue)}
+.mm-foot{margin-top:2rem;font-size:.75rem;letter-spacing:.1em;color:var(--muted)}
+
+/* ── HERO ── */
+.ab-img{
+  position: relative;
+  overflow: hidden;
+}
+
+.ab-video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+  
+  #hero{
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .h-slides{
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .bg-video{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -60%) scale(1.1);
+    z-index: -2;
+  }
+
+  .overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(7,17,31,.7), rgba(7,17,31,.5));
+    z-index: -1;
+  }
+
+#hero{height:100vh;min-height:600px;position:relative;display:flex;align-items:flex-end;overflow:hidden}
+.h-slides{position:absolute;inset:0}
+.h-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;background-size:cover;background-position:center}
+.h-slide.on{opacity:1}
+.h-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(7,9,13,.65) 0%,rgba(7,9,13,.2) 55%,rgba(7,9,13,.05) 100%)}
+.h-noise{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.h-content{
+  position:relative;
+  z-index:2;
+  padding:8rem 3.5rem 5.5rem;
+  max-width:820px;
+}
+.h-tag{display:inline-flex;align-items:center;gap:.7rem;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);margin-bottom:2rem}
+.h-tag::before{content:'';width:24px;height:1px;background:var(--blue)}
+.h-title{font-family:var(--serif);font-size:clamp(2.5rem,5vw,5rem);font-weight:300;line-height:.95;color:var(--white);margin-bottom:1.8rem;letter-spacing:-.02em}
+.h-title em{font-style:italic;color:var(--blue);display:block}
+.h-desc{font-size:.92rem;line-height:1.85;color:rgba(226,232,240,.55);font-weight:300;max-width:460px;margin-bottom:2.8rem}
+.h-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-p{padding:.9rem 2.6rem;background:var(--blue);color:var(--white);font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-block}
+.btn-p:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 12px 36px rgba(54,159,206,.28)}
+.btn-o{padding:.9rem 2.6rem;border:1px solid rgba(54,159,206,.35);color:var(--blue);font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-block}
+.btn-o:hover{border-color:var(--blue);background:var(--blue-pale)}
+/* hero indicators */
+.h-dots{position:absolute;bottom:2.5rem;right:3.5rem;z-index:2;display:flex;flex-direction:column;gap:.5rem}
+.h-dot{width:1px;height:28px;background:rgba(54,159,206,.25);cursor:pointer;transition:all .4s;position:relative;overflow:hidden}
+.h-dot::after{content:'';position:absolute;top:0;left:0;width:100%;height:0;background:var(--blue);transition:height .4s}
+.h-dot.on{width:2px}.h-dot.on::after{height:100%}
+/* hero counter */
+.h-counter{position:absolute;bottom:2.5rem;left:3.5rem;z-index:2;font-size:.62rem;letter-spacing:.18em;color:var(--muted)}
+.h-counter b{font-size:1.4rem;font-family:var(--serif);font-weight:300;color:var(--white);line-height:1}
+/* scroll cue */
+.h-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.58rem;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.h-line{width:1px;height:42px;background:linear-gradient(to bottom,var(--blue),transparent);animation:lp 2s ease infinite}
+@keyframes lp{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* ── SHARED ── */
+.sec{padding:7rem 0}
+.c{max-width:1320px;margin:0 auto;padding:0 3.5rem}
+.tag{display:inline-flex;align-items:center;gap:.7rem;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:.8rem}
+.tag::before{content:'';width:24px;height:1px;background:var(--blue)}
+.ttl{font-family:var(--serif);font-size:clamp(2.2rem,4.2vw,3.8rem);font-weight:300;line-height:1.1;color:var(--white)}
+.ttl em{font-style:italic;color:var(--blue)}
+.rev{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease}
+.rev.v{opacity:1;transform:none}
+
+/* ── TICKER BAR ── */
+.ticker{background:var(--blue-dark);padding:.7rem 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.ticker-t{display:flex;gap:0;width:max-content;animation:tk 28s linear infinite}
+.ticker-t span{white-space:nowrap;padding:0 3rem;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:500}
+.ticker-t span b{color:rgba(255,255,255,.3);margin:0 1rem}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── ABOUT ── */
+#about{background:var(--dark-2)}
+.ab-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:600px}
+.ab-img{position:relative;overflow:hidden}
+.ab-img img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.ab-img:hover img{transform:scale(1.04)}
+.ab-img-over{position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,9,13,.3),rgba(41,105,166,.12))}
+.ab-img-badge{position:absolute;bottom:2rem;left:2rem;background:rgba(7,9,13,.85);backdrop-filter:blur(10px);border:1px solid rgba(54,159,206,.2);padding:1.2rem 1.6rem}
+.ab-img-badge .n{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:var(--blue);line-height:1}
+.ab-img-badge .l{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.ab-text{padding:5rem 5rem 5rem 5.5rem;display:flex;flex-direction:column;justify-content:center}
+.ab-text p{font-size:.93rem;line-height:1.9;color:rgba(226,232,240,.58);font-weight:300;margin-bottom:1.3rem}
+.ab-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:2.5rem;border-top:1px solid rgba(54,159,206,.1)}
+.ab-stat{padding:1.5rem 0 0;border-right:1px solid rgba(54,159,206,.08)}
+.ab-stat:last-child{border-right:none}
+.ab-stat:not(:first-child){padding-left:1.5rem}
+.ab-stat .n{font-family:var(--serif);font-size:2.8rem;font-weight:300;color:var(--blue);line-height:1}
+.ab-stat .l{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+.ab-link{display:inline-flex;align-items:center;gap:.6rem;margin-top:2.5rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);text-decoration:none;font-weight:600;transition:gap .3s}
+.ab-link:hover{gap:1rem}
+.ab-link svg{transition:transform .3s}
+.ab-link:hover svg{transform:translateX(4px)}
+
+/* ── SERVICES ── */
+#services{background:var(--dark);padding:0}
+.sv-head{padding:5rem 3.5rem 3rem;max-width:1320px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end}
+.sv-head-r{max-width:340px;font-size:.88rem;line-height:1.8;color:var(--muted);font-weight:300;text-align:right}
+.sv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(54,159,206,.06)}
+.sv-card{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--dark);cursor:pointer}
+.sv-card img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease,filter .5s;filter:brightness(.6) saturate(.8)}
+.sv-card:hover img{transform:scale(1.1);filter:brightness(.45) saturate(.6)}
+.sv-card-body{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem 1.8rem}
+.sv-num{font-size:.58rem;letter-spacing:.25em;color:var(--blue);margin-bottom:.6rem}
+.sv-name{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:.6rem}
+.sv-desc{font-size:.78rem;line-height:1.6;color:rgba(226,232,240,.5);font-weight:300;max-height:0;overflow:hidden;transition:max-height .5s,opacity .4s;opacity:0}
+.sv-card:hover .sv-desc{max-height:80px;opacity:1}
+.sv-arrow{display:inline-flex;align-items:center;gap:.4rem;margin-top:.8rem;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);text-decoration:none;opacity:0;transform:translateY(6px);transition:all .4s}
+.sv-card:hover .sv-arrow{opacity:1;transform:none}
+.sv-line{position:absolute;top:0;left:0;width:3px;height:0;background:var(--blue);transition:height .5s}
+.sv-card:hover .sv-line{height:100%}
+.sv-cta{text-align:center;padding:3.5rem 0 5rem}
+
+/* ── WHY US ── */
+#why{background:var(--dark-2)}
+.why-wrap{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.why-img{position:relative}
+.why-img-main{aspect-ratio:3/4;overflow:hidden}
+.why-img-main img{width:100%;height:100%;object-fit:cover}
+.why-img-float{position:absolute;bottom:-2rem;right:-2rem;width:55%;aspect-ratio:4/3;overflow:hidden;border:3px solid var(--dark-2)}
+.why-img-float img{width:100%;height:100%;object-fit:cover}
+.why-list{margin-top:2.5rem;display:flex;flex-direction:column;gap:0}
+.why-item{display:flex;gap:1.4rem;padding:1.4rem 0;border-bottom:1px solid rgba(54,159,206,.07);transition:background .3s}
+.why-item:first-child{border-top:1px solid rgba(54,159,206,.07)}
+.why-icon{width:40px;height:40px;border:1px solid rgba(54,159,206,.2);display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:1rem;flex-shrink:0;transition:all .3s}
+.why-item:hover .why-icon{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.why-item-text h4{font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:.3rem;letter-spacing:.04em}
+.why-item-text p{font-size:.82rem;line-height:1.65;color:var(--muted);font-weight:300}
+
+/* ── PROJECTS ── */
+#projects{background:var(--dark)}
+.proj-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}
+.proj-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:2px;background:rgba(54,159,206,.06)}
+.proj-card{position:relative;overflow:hidden;background:var(--dark)}
+.proj-card:first-child{grid-row:1/3}
+.proj-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s,opacity .5s;opacity:.75;display:block}
+.proj-card:first-child{aspect-ratio:unset;min-height:550px}
+.proj-card:not(:first-child){aspect-ratio:3/2}
+.proj-card:hover img{transform:scale(1.07);opacity:.5}
+.proj-info{position:absolute;bottom:0;left:0;right:0;padding:1.6rem;background:linear-gradient(to top,rgba(7,9,13,.92) 0%,transparent 100%)}
+.proj-cat{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:.3rem}
+.proj-name{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--white);line-height:1.2}
+.proj-loc{font-size:.72rem;color:rgba(226,232,240,.45);margin-top:.2rem}
+.proj-hover{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.proj-hover span{width:50px;height:50px;border:1px solid rgba(54,159,206,.5);display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:1.2rem}
+.proj-card:hover .proj-hover{opacity:1}
+.proj-more{margin-top:3rem;text-align:center}
+
+/* ── GALLERY TICKER ── */
+#gallery{background:var(--dark-3);padding:3rem 0;overflow:hidden}
+.gl-label{text-align:center;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;opacity:.7}
+.gl-row{display:flex;gap:1rem;width:max-content;animation:tk 35s linear infinite}
+.gl-row.r2{animation-direction:reverse;animation-duration:28s;margin-top:1rem}
+.gl-row:hover{animation-play-state:paused}
+.gl-img{width:280px;height:186px;flex-shrink:0;overflow:hidden}
+.gl-img img{width:100%;height:100%;object-fit:cover;opacity:.55;transition:opacity .4s,transform .5s}
+.gl-img:hover img{opacity:.9;transform:scale(1.06)}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--dark-2)}
+.test-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}
+.test-wrap{overflow:hidden}
+.test-tr{display:flex;gap:1.5rem;transition:transform .7s cubic-bezier(.25,1,.5,1)}
+.test-c{flex:0 0 calc(33.33% - 1rem);background:var(--dark-3);padding:2.5rem;border:1px solid rgba(54,159,206,.07);transition:border-color .3s,transform .3s}
+.test-c:hover{border-color:rgba(54,159,206,.28);transform:translateY(-3px)}
+.t-stars{color:var(--blue);font-size:.75rem;letter-spacing:.05em;margin-bottom:1.5rem}
+.t-quote{font-family:var(--serif);font-size:1.1rem;line-height:1.78;color:rgba(226,232,240,.68);font-style:italic;margin-bottom:2rem}
+.t-auth{display:flex;align-items:center;gap:1rem}
+.t-av{width:46px;height:46px;border-radius:50%;overflow:hidden;border:2px solid rgba(54,159,206,.2);flex-shrink:0}
+.t-av img{width:100%;height:100%;object-fit:cover}
+.t-name{font-size:.84rem;font-weight:600;color:var(--text);letter-spacing:.03em}
+.t-role{font-size:.68rem;color:var(--muted);margin-top:.15rem}
+.test-nav{display:flex;gap:.6rem}
+.t-btn{width:42px;height:42px;border:1px solid rgba(54,159,206,.2);background:transparent;color:var(--muted);cursor:pointer;font-size:.9rem;transition:all .3s;display:flex;align-items:center;justify-content:center}
+.t-btn:hover{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.t-cta{text-align:center;margin-top:3rem}
+
+/* ── CTA BAND ── */
+#cta{position:relative;overflow:hidden;padding:9rem 0}
+.cta-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80') center/cover;filter:brightness(.18) saturate(.5)}
+.cta-grid-over{position:absolute;inset:0;background-image:linear-gradient(rgba(54,159,206,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(54,159,206,.04) 1px,transparent 1px);background-size:60px 60px}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(54,159,206,.1) 0%,transparent 65%);pointer-events:none}
+.cta-inner{position:relative;z-index:1;text-align:center}
+.cta-inner .tag{justify-content:center}.cta-inner .tag::before{display:none}
+.cta-title{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;color:var(--white);line-height:1.05;margin:1.5rem 0 1rem}
+.cta-title em{font-style:italic;color:var(--blue)}
+.cta-sub{color:var(--muted);max-width:500px;margin:0 auto 3.5rem;line-height:1.8;font-size:.9rem;font-weight:300}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:4rem}
+.btn-wa{display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 2.4rem;background:#25D366;color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.btn-wa:hover{background:#1db954;transform:translateY(-2px)}
+.cta-strip{display:flex;justify-content:center;gap:5rem;flex-wrap:wrap;padding-top:3.5rem;border-top:1px solid rgba(54,159,206,.1)}
+.cstrip-item{text-align:center}
+.cstrip-label{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem}
+.cstrip-val{font-size:.92rem;color:var(--text);font-weight:300}
+.cstrip-val a{color:inherit;text-decoration:none;transition:color .3s}
+.cstrip-val a:hover{color:var(--blue)}
+
+/* ── PARTNERS ── */
+#partners{background:var(--dark);padding:4rem 0;overflow:hidden;border-top:1px solid rgba(54,159,206,.06)}
+.pt-label{text-align:center;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2.5rem;opacity:.6}
+.pt-row{display:flex;gap:5rem;align-items:center;width:max-content;animation:tk 25s linear infinite}
+.pt-logo{height:34px;filter:brightness(0) invert(1);opacity:.22;transition:opacity .3s;flex-shrink:0}
+.pt-logo:hover{opacity:.65}
+
+/* ── FOOTER ── */
+footer{background:var(--dark-2);border-top:1px solid rgba(54,159,206,.1)}
+.ft-main{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:4rem;padding:5rem 0 3.5rem}
+.ft-brand svg{height:38px;width:auto;display:block;margin-bottom:1.3rem}
+.ft-brand p{font-size:.84rem;line-height:1.8;color:var(--muted);font-weight:300;max-width:260px;margin-bottom:1.5rem}
+.ft-social{display:flex;gap:.6rem}
+.ft-soc-btn{width:34px;height:34px;border:1px solid rgba(54,159,206,.15);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:.75rem;transition:all .3s}
+.ft-soc-btn:hover{border-color:var(--blue);color:var(--blue)}
+.ft-col h4{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--blue);margin-bottom:1.5rem;font-weight:500}
+.ft-col ul{list-style:none}
+.ft-col ul li{margin-bottom:.65rem}
+.ft-col ul li a{font-size:.84rem;color:var(--muted);text-decoration:none;transition:color .3s;font-weight:300;display:inline-flex;align-items:center;gap:.5rem}
+.ft-col ul li a:hover{color:var(--blue)}
+.ft-col ul li a::before{content:'';width:4px;height:1px;background:var(--blue);opacity:0;transition:all .3s}
+.ft-col ul li a:hover::before{opacity:1;width:10px}
+.ft-ci{display:flex;gap:.8rem;margin-bottom:1rem;align-items:flex-start}
+.ft-ci-i{color:var(--blue);font-size:.8rem;flex-shrink:0;margin-top:2px}
+.ft-ci-t{font-size:.82rem;color:var(--muted);line-height:1.5;font-weight:300}
+.ft-ci-t a{color:var(--blue);text-decoration:none}
+.ft-bot{border-top:1px solid rgba(255,255,255,.04);padding:1.6rem 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.ft-copy{font-size:.72rem;color:var(--muted)}
+.ft-made{font-size:.72rem;color:var(--muted)}
+.ft-made a{color:var(--blue);text-decoration:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1200px){
+  .sv-grid{grid-template-columns:repeat(2,1fr)}
+  .sv-card{aspect-ratio:4/3}
+  .proj-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .proj-card:first-child{grid-row:auto;min-height:300px;aspect-ratio:4/3}
+}
+@media(max-width:1024px){
+  nav{padding:1.2rem 2rem}
+  nav.s{padding:.9rem 2rem}
+  .c,.sv-head,.h-content{padding-left:2rem;padding-right:2rem}
+  .ab-wrap{grid-template-columns:1fr}
+  .ab-text{padding:3rem 2rem}
+  .why-wrap{grid-template-columns:1fr;gap:3rem}
+  .why-img-float{right:0;bottom:-1rem}
+  .ft-main{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .test-c{flex:0 0 calc(50% - .75rem)}
+  .cta-strip{gap:2.5rem}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.4rem}
+  nav.s{padding:.8rem 1.4rem}
+  .nl,.nav-cta{display:none}
+  .hbg{display:flex}
+  .c,.sv-head,.h-content{padding-left:1.4rem;padding-right:1.4rem}
+  .h-content{padding-bottom:5rem}
+  .h-title{font-size:clamp(2.8rem,9vw,5rem)}
+  .h-dots{display:none}
+  .h-scroll{display:none}
+  .sec{padding:4.5rem 0}
+  .sv-grid{grid-template-columns:1fr}
+  .sv-card{aspect-ratio:3/2}
+  .proj-grid{grid-template-columns:1fr}
+  .proj-card:first-child{grid-row:auto;min-height:260px;aspect-ratio:4/3}
+  .why-img{display:none}
+  .why-wrap{grid-template-columns:1fr}
+  .test-c{flex:0 0 100%}
+  .test-head{flex-direction:column;gap:1.2rem;align-items:flex-start}
+  .ft-main{grid-template-columns:1fr;gap:2rem}
+  .ft-bot{flex-direction:column;gap:.5rem;text-align:center}
+  .cta-strip{gap:1.5rem}
+  .cta-btns{flex-direction:column;align-items:center}
+  .sv-head{flex-direction:column;gap:1rem;align-items:flex-start}
+  .sv-head-r{text-align:left;max-width:none}
+  .ab-stats{grid-template-columns:1fr 1fr}
+  .proj-head{flex-direction:column;gap:1rem;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur-r"></div>
+
+<!-- ══ NAV ══ -->
+<nav id="nb">
+  <a href="index.html" class="logo">
+    <img src="pictures/logo/logo-white.svg" alt="NextGen Interiors and Architectures logo" loading="eager">
+  </a>
+  <ul class="nl">
+    <li><a href="index.html" class="on">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="tel:9849151220" class="nav-tel">+977 9849151220</a>
+    <a href="contact.html" class="nav-btn">contact us </a>
+  </div>
+  <div class="hbg" onclick="openMM()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mm" id="mm">
+  <button class="mm-close" onclick="closeMM()">✕</button>
+  <a href="index.html" onclick="closeMM()">Home</a>
+  <a href="about.html" onclick="closeMM()">About</a>
+  <a href="services.html" onclick="closeMM()">Services</a>
+  <a href="portfolio.html" onclick="closeMM()">Portfolio</a>
+  <a href="blog.html" onclick="closeMM()">Blog</a>
+  <a href="contact.html" onclick="closeMM()">Contact</a>
+  <div class="mm-foot">+977 9849151220 &nbsp;·&nbsp; Baluwatar, Kathmandu</div>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="h-slides">
+
+    <!-- VIDEO BACKGROUND -->
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="pictures/showcase-nextgen-interior.mp4" type="video/mp4">
+    </video>
+
+    <!-- OVERLAY -->
+    <div class="overlay"></div>
+
+  </div>
+  <div class="h-noise"></div>
+  <div class="h-content">
+    <div class="h-tag">Kathmandu, Nepal &nbsp;·&nbsp; Est. 2018</div>
+    <h1 class="h-title">Crafting<br>Visions,<em>Building Dreams</em></h1>
+    <p class="h-desc">From concept to completion — we transform spaces into extraordinary environments across Nepal and beyond.</p>
+    <div class="h-btns">
+      <a href="services.html" class="btn-p">Explore Services</a>
+      <a href="portfolio.html" class="btn-o">View Our Work</a>
+    </div>
+  </div>
+  <div class="h-dots" id="hDots">
+    <div class="h-dot on" onclick="goSlide(0)"></div>
+    <div class="h-dot" onclick="goSlide(1)"></div>
+    <div class="h-dot" onclick="goSlide(2)"></div>
+    <div class="h-dot" onclick="goSlide(3)"></div>
+  </div>
+  <div class="h-counter"><b id="hNum">01</b><br>/ 04</div>
+  <div class="h-scroll"><div class="h-line"></div>Scroll</div>
+</section>
+
+<!-- ══ TICKER ══ -->
+<div class="ticker">
+  <div class="ticker-t">
+    <span>Interior Design<b>✦</b></span><span>Architecture<b>✦</b></span><span>Turnkey Projects<b>✦</b></span><span>Landscaping & DPR<b>✦</b></span><span>Hotel Design<b>✦</b></span><span>Residential<b>✦</b></span><span>Commercial Interiors<b>✦</b></span><span>Kathmandu, Nepal<b>✦</b></span>
+    <span>Interior Design<b>✦</b></span><span>Architecture<b>✦</b></span><span>Turnkey Projects<b>✦</b></span><span>Landscaping & DPR<b>✦</b></span><span>Hotel Design<b>✦</b></span><span>Residential<b>✦</b></span><span>Commercial Interiors<b>✦</b></span><span>Kathmandu, Nepal<b>✦</b></span>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section id="about" class="sec" style="padding:0">
+ <div class="ab-wrap">
+  <div class="ab-img rev">
+
+    <!-- VIDEO -->
+    <video autoplay muted loop playsinline class="ab-video">
+      <source src="pictures/next-gen-interiors.mp4" type="video/mp4">
+    </video>
+      <div class="ab-img-over"></div>
+      <div class="ab-img-badge">
+        <div class="n">6+</div>
+        <div class="l">Years of Excellence</div>
+      </div>
+    </div>
+    <div class="ab-text">
+      <div class="tag rev">Who We Are</div>
+      <h2 class="ttl rev">Transforming Spaces,<br><em>Defining Lifestyles</em></h2>
+      <p class="rev" style="margin-top:1.5rem">From Kathmandu, NextGen Interiors transforms visions into reality. We prioritize quality materials and seamless project delivery, building trust through collaborative design — both locally and internationally.</p>
+      <p class="rev">Our expertise spans interior design, architectural planning, turnkey project management, and landscaping — delivering holistic, beautiful spaces for residential, commercial, and hospitality clients across Nepal.</p>
+      <div class="ab-stats rev">
+        <div class="ab-stat"><div class="n">200+</div><div class="l">Projects Delivered</div></div>
+        <div class="ab-stat"><div class="n">50+</div><div class="l">Hotel Clients</div></div>
+        <div class="ab-stat"><div class="n">98%</div><div class="l">Client Satisfaction</div></div>
+      </div>
+      <a href="about.html" class="ab-link rev">
+        Our Story
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section id="services" style="background:var(--dark)">
+  <div class="sv-head rev">
+    <div>
+      <div class="tag">What We Do</div>
+      <h2 class="ttl">Our <em>Services</em></h2>
+    </div>
+    <p class="sv-head-r">Innovative designs and meticulously crafted spaces — blending aesthetics with functionality across every project.</p>
+  </div>
+  <div class="sv-grid">
+    <a href="service-interior.html" class="sv-card" style="text-decoration:none">
+      <div class="sv-line"></div>
+      <img src="pictures/nextgen-Interior Design-best in-kathmandu.webp" alt="Interior Design" loading="lazy" width="400" height="533">
+      <div class="sv-card-body">
+        <div class="sv-num">01</div>
+        <div class="sv-name">Interior Design</div>
+        <div class="sv-desc">Residential, commercial & hospitality interiors crafted to reflect your lifestyle.</div>
+        <span class="sv-arrow">Explore <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+      </div>
+    </a>
+    <a href="service-architecture.html" class="sv-card" style="text-decoration:none">
+      <div class="sv-line"></div>
+      <img src="pictures/Architecture & Exterior Design.webp" alt="Architecture" loading="lazy" width="400" height="533">
+      <div class="sv-card-body">
+        <div class="sv-num">02</div>
+        <div class="sv-name">Architecture & Exterior Design</div>
+        <div class="sv-desc">Bold architectural visions — facades, structures & masterplans built to last.</div>
+        <span class="sv-arrow">Explore <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+      </div>
+    </a>
+    <a href="service-turnkey.html" class="sv-card" style="text-decoration:none">
+      <div class="sv-line"></div>
+      <img src="pictures/Trunkey Projects-next gen -interiors.jpeg" alt="Turnkey" loading="lazy" width="400" height="533">
+      <div class="sv-card-body">
+        <div class="sv-num">03</div>
+        <div class="sv-name">Turnkey Projects</div>
+        <div class="sv-desc">Complete project delivery under one roof — design, build & handover.</div>
+        <span class="sv-arrow">Explore <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+      </div>
+    </a>
+    <a href="service-landscaping.html" class="sv-card" style="text-decoration:none">
+      <div class="sv-line"></div>
+      <img src="pictures/Landscaping and DPR.jpeg" alt="Landscaping" loading="lazy" width="400" height="533">
+      <div class="sv-card-body">
+        <div class="sv-num">04</div>
+        <div class="sv-name">Landscaping & DPR</div>
+        <div class="sv-desc">Beautiful outdoor environments & detailed project reports for every scale.</div>
+        <span class="sv-arrow">Explore <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+      </div>
+    </a>
+  </div>
+  <div class="sv-cta rev"><a href="services.html" class="btn-o">View All Services</a></div>
+</section>
+
+<!-- ══ WHY US ══ -->
+<section id="why" class="sec">
+  <div class="c">
+    <div class="why-wrap">
+      <div class="why-img rev">
+        <div class="why-img-main">
+          <img src="pictures/Architecture & Exterior Design.jpeg" alt="Why NextGen" loading="lazy" width="600" height="800">
+        </div>
+        <div class="why-img-float">
+          <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=500&q=80" alt="Design Detail" loading="lazy" width="400" height="300">
+        </div>
+      </div>
+      <div>
+        <div class="tag rev">Why Choose Us</div>
+        <h2 class="ttl rev">Nepal's Most <em>Trusted</em> Design Team</h2>
+        <div class="why-list">
+          <div class="why-item rev">
+            <div class="why-icon">◆</div>
+            <div class="why-item-text">
+              <h4>End-to-End Expertise</h4>
+              <p>From concept sketches to final handover — one team, one vision, zero confusion.</p>
+            </div>
+          </div>
+          <div class="why-item rev">
+            <div class="why-icon">◇</div>
+            <div class="why-item-text">
+              <h4>Premium Materials Only</h4>
+              <p>We partner with Hafele, Kohler, Hettich, Asian Paints & other top brands for lasting quality.</p>
+            </div>
+          </div>
+          <div class="why-item rev">
+            <div class="why-icon">○</div>
+            <div class="why-item-text">
+              <h4>On Time, Every Time</h4>
+              <p>Our disciplined project management ensures timelines are met without compromising quality.</p>
+            </div>
+          </div>
+          <div class="why-item rev">
+            <div class="why-icon">△</div>
+            <div class="why-item-text">
+              <h4>Hospitality Specialists</h4>
+              <p>Trusted by 5-star & 4-star hotel entrepreneurs across Nepal for our proven expertise.</p>
+            </div>
+          </div>
+        </div>
+        <a href="about.html" class="btn-p" style="margin-top:2.5rem;display:inline-block">Learn About Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ══ -->
+<section id="projects" class="sec">
+  <div class="c">
+    <div class="proj-head rev">
+      <div>
+        <div class="tag">Our Work</div>
+        <h2 class="ttl">Recent <em>Projects</em></h2>
+      </div>
+      <a href="portfolio.html" class="btn-o">View All Projects</a>
+    </div>
+    <div class="proj-grid rev">
+      <a href="portfolio.html" class="proj-card" style="text-decoration:none">
+        <img src="pictures/Janakpur Hotel Marriot-interiors-design-nextgen-interiors.webp" alt="Janakpur Hotel Marriot-interiors-design-nextgen-interiors" loading="lazy" width="700" height="700">
+        <div class="proj-hover"><span>↗</span></div>
+        <div class="proj-info"><div class="proj-cat">Hotel</div><div class="proj-name">Hotel Sweet Purnima</div><div class="proj-loc">📍 Kathmandu</div></div>
+      </a>
+      <a href="portfolio.html" class="proj-card" style="text-decoration:none">
+        <img src="pictures/education consultancy-interiors-design-nepal.webp" alt="education consultancy-interiors-design-nepal" loading="lazy" width="500" height="375">
+        <div class="proj-hover"><span>↗</span></div>
+        <div class="proj-info"><div class="proj-cat">Hotel</div><div class="proj-name">Educenter Global Consultency
+
+</div><div class="proj-loc">📍 Kathmandu, Nepal</div></div>
+      </a>
+      <a href="portfolio.html" class="proj-card" style="text-decoration:none">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Residence" loading="lazy" width="500" height="375">
+        <div class="proj-hover"><span>↗</span></div>
+        <div class="proj-info"><div class="proj-cat">Residential</div><div class="proj-name">Luxury Residence</div><div class="proj-loc">📍 Lalitpur</div></div>
+      </a>
+      <a href="portfolio.html" class="proj-card" style="text-decoration:none">
+        <img src="pictures/Lazeem Hotel - interiors design - nextgen.webp" alt="Lazeem Hotel - interiors design - nextgen" loading="lazy" width="500" height="375">
+        <div class="proj-hover"><span>↗</span></div>
+        <div class="proj-info"><div class="proj-cat">Hotel</div><div class="proj-name">Lazeem Hotel</div><div class="proj-loc">📍 Kathmandu</div></div>
+      </a>
+      <a href="portfolio.html" class="proj-card" style="text-decoration:none">
+        <img src="pictures/HIMALAYAN JAVA - interiors - design -nextgen.webp" alt="Restaurant" loading="lazy" width="500" height="375">
+        <div class="proj-hover"><span>↗</span></div>
+        <div class="proj-info"><div class="proj-cat">Commercial</div><div class="proj-name">Restaurant & Cafe</div><div class="proj-loc">📍 Kathmandu</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<!-- ══ GALLERY ══ -->
+<section id="gallery">
+  <p class="gl-label">Portfolio Gallery — Hover to pause</p>
+
+  <div class="gl-row">
+    <div class="gl-img">
+      <img src="pictures/Architecture & Exterior Design.jpeg" alt="architecture and exterior design in nepal modern luxury residence" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Buddhanilkantha Villa - architecture design - nextgen.webp" alt="buddhanilkantha villa architecture design kathmandu nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Buddhanilkantha Villa - interiors- design.webp" alt="buddhanilkantha villa interior design project nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/education consultancy-interiors-design-nepal.webp" alt="education consultancy office interior design nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Gautam Hotel Bardibas Next Gen Interiors Design.webp" alt="hotel interior design project bardibas nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Hotel Aashiyana Next Gen Interios Design.webp" alt="hotel aashiyana interior design nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Hotel Sweet Purnima -next gen interiors design.webp" alt="hotel sweet purnima interior design nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Interior Design- next gen-interiors.jpeg" alt="modern interior design next gen interiors kathmandu" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Janakpur Hotel Marriot-interiors-design-nextgen-interiors.webp" alt="janakpur hotel marriot interior design nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Jhamsikhel Beauty Studio - next gen interiors.webp" alt="jhamsikhel beauty studio interior design kathmandu nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Landscaping and DPR.jpeg" alt="landscaping and dpr design project nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Nayapati Residence - architecture design.webp" alt="nayapati residence architecture design nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Prajit Shrestha Residence - Architecture design.webp" alt="prajit shrestha residence architecture design kathmandu nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Radhe Radhe Residence - next gen interiros.webp" alt="radhe radhe residence interior design next gen interiors nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Radhe Radhe residence contruction-architecture design.webp" alt="radhe radhe residence construction architecture design nepal" loading="lazy" width="280" height="186">
+    </div>
+  </div>
+
+  <div class="gl-row r2" style="margin-top:1rem">
+    <div class="gl-img">
+      <img src="pictures/Radhe Radhe Residence.webp" alt="radhe radhe residence modern interior project nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Radhe Radhe Residence-next-gen-interiors.webp" alt="radhe radhe residence next gen interiors project nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Residence Building Next gen interiors.webp" alt="residence building interior design next gen interiors nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/SAKHU RESIDENCE - design architecture.webp" alt="sakhu residence architecture design nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/SATDOBATO RESIDENCE - next gen interiors 1.webp" alt="satdobato residence bedroom interior design nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/SATDOBATO RESIDENCE - next gen interiors 3.webp" alt="satdobato residence luxury interior design kathmandu nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/SATDOBATO RESIDENCE - next gen interiors.webp" alt="satdobato residence living room interior design nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/The Banhan Studio - Civil Mall - next gen interiors 2.webp" alt="banhan studio civil mall interior design kathmandu nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/The Banhan Studio - Civil Mall - next gen interiors.webp" alt="banhan studio retail interior design civil mall nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/TOKHA RESIDENCE - building contruction design.webp" alt="tokha residence building construction design nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Trunkey Projects-next gen -interiors.jpeg" alt="turnkey interior projects next gen interiors nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <!-- duplicates for smooth loop -->
+    <div class="gl-img">
+      <img src="pictures/Buddhanilkantha Villa - architecture design - nextgen.webp" alt="luxury villa exterior design in kathmandu nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/Jhamsikhel Beauty Studio - next gen interiors.webp" alt="premium salon and beauty studio interior design nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/SATDOBATO RESIDENCE - next gen interiors.webp" alt="premium residential interior design in satdobato nepal" loading="lazy" width="280" height="186">
+    </div>
+
+    <div class="gl-img">
+      <img src="pictures/The Banhan Studio - Civil Mall - next gen interiors.webp" alt="commercial showroom interior design project in nepal" loading="lazy" width="280" height="186">
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section id="testimonials" class="sec">
+  <div class="c">
+    <div class="test-head rev">
+      <div>
+        <div class="tag">Client Words</div>
+        <h2 class="ttl">What Our <em>Clients Say</em></h2>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:1rem">
+        <div class="test-nav">
+          <button class="t-btn" onclick="tSlide(-1)">←</button>
+          <button class="t-btn" onclick="tSlide(1)">→</button>
+        </div>
+
+        <a href="https://www.google.com/maps/place/NextGen+interiors+and+architects/@27.7305703,85.3269254,734m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39eb19ae1ff33c11:0x6942936f55f67bf2!8m2!3d27.7305703!4d85.3295003!16s%2Fg%2F11t40tzvf_!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D"
+           target="_blank"
+           rel="noopener"
+           style="font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);text-decoration:none">
+          Leave a Review ↗
+        </a>
+      </div>
+    </div>
+
+    <div class="test-wrap">
+      <div class="test-tr" id="tTrack">
+
+        <div class="test-c">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">"I have been searching best architecture designer for my agri farm design and landscape drawing. Suddenly, I heard about their work from some of my friends and family. I looked at their landscape design, interior design, architecture design, garden design and others all. They are best, highly recommended — just trust them and go ahead."</p>
+          <div class="t-auth">
+            <div class="t-av">
+              <img src="https://ui-avatars.com/api/?name=Roshan+Bhusal&background=0B1623&color=ffffff&size=128" alt="Roshan Bhusal Google review" loading="lazy" width="46" height="46">
+            </div>
+            <div>
+              <div class="t-name">Roshan Bhusal</div>
+              <div class="t-role">Google Review</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-c">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">"I highly recommend Nextgen Interiors to anyone looking for a top-notch design firm. Their creativity, expertise and commitment to excellence make them stand out in the industry. I am incredibly grateful for the incredible work they did in designing my house, and I look forward to working with them again in future. Thank you Nextgen Team."</p>
+          <div class="t-auth">
+            <div class="t-av">
+              <img src="https://ui-avatars.com/api/?name=Bimala+Ghimire&background=0B1623&color=ffffff&size=128" alt="Bimala Ghimire Google review" loading="lazy" width="46" height="46">
+            </div>
+            <div>
+              <div class="t-name">Bimala Ghimire</div>
+              <div class="t-role">Google Review</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-c">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">"At first, by seeing their profile, we thought they were expensive architecture designers, but after meeting with them they were not expensive at all. All of our family are happy with the interior service they provided for my luxurious villa at Budhanilkantha, Kathmandu. Thank you Nextgen Interiors — we will work again within 2026."</p>
+          <div class="t-auth">
+            <div class="t-av">
+              <img src="https://ui-avatars.com/api/?name=Aashray+Renovation&background=0B1623&color=ffffff&size=128" alt="Aashray Renovation Google review" loading="lazy" width="46" height="46">
+            </div>
+            <div>
+              <div class="t-name">Aashray Renovation</div>
+              <div class="t-role">Google Review</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-c">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">"I am absolutely blown away by the work NextGen Interiors and Architects did on my home. The difference is night and day. They took a space I was unsure about and turned it into a stunning, functional, and beautiful area that feels truly like 'me.' The attention to detail is remarkable, and the finished product far exceeded my expectations. I can't recommend them enough — they are true artists and professionals."</p>
+          <div class="t-auth">
+            <div class="t-av">
+              <img src="https://ui-avatars.com/api/?name=Apekshya+Thakuri&background=0B1623&color=ffffff&size=128" alt="Apekshya Thakuri Google review" loading="lazy" width="46" height="46">
+            </div>
+            <div>
+              <div class="t-name">Apekshya Thakuri</div>
+              <div class="t-role">Google Review</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="t-cta rev">
+      <a href="https://www.google.com/maps/place/NextGen+interiors+and+architects/@27.7305703,85.3269254,734m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39eb19ae1ff33c11:0x6942936f55f67bf2!8m2!3d27.7305703!4d85.3295003!16s%2Fg%2F11t40tzvf_!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D"
+         target="_blank"
+         rel="noopener"
+         class="btn-o">
+        Google Reviews
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-grid-over"></div>
+  <div class="cta-glow"></div>
+  <div class="c cta-inner">
+    <div class="tag rev">Let's Build Together</div>
+    <h2 class="cta-title rev">Ready To <em>Start</em><br>Your Project?</h2>
+    <p class="cta-sub rev">We believe in strong, collaborative relationships. Our goal is to be the right fit — and then exceed every expectation.</p>
+    <div class="cta-btns rev">
+      <a href="https://wa.me/9849151220" class="btn-wa" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp Us
+      </a>
+      <a href="contact.html" class="btn-p">Book Consultation</a>
+      <a href="portfolio.html" class="btn-o" style="border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.6)">View Portfolio</a>
+    </div>
+    <div class="cta-strip rev">
+      <div class="cstrip-item"><div class="cstrip-label">Office</div><div class="cstrip-val">Baluwatar, Kathmandu</div></div>
+      <div class="cstrip-item"><div class="cstrip-label">Phone</div><div class="cstrip-val"><a href="tel:9849151220">+977 9849151220</a></div></div>
+      <div class="cstrip-item"><div class="cstrip-label">Email</div><div class="cstrip-val"><a href="mailto:info@nextgeninterior.com">info@nextgeninterior.com</a></div></div>
+      <div class="cstrip-item"><div class="cstrip-label">Hours</div><div class="cstrip-val">8:00am – 9:00pm Daily</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PARTNERS ══ -->
+<section id="partners">
+  <p class="pt-label">Associated Brands & Partners</p>
+  <div class="pt-row">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748503284/jhtrxw1aw5uklkr90ubj.png" alt="Hafele" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748499481/mccmrn5mcl0o19nmgwau.png" alt="Kohler" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748499520/i0qgkk6awufi2lon457p.png" alt="Merino" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748504115/ndn00ofonxalqnmqylww.png" alt="Jaquar" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748500673/qklsogsrfwdjzomzbd5v.png" alt="Asian Paints" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748504212/hpgg1vlteglhjq5tqket.png" alt="Blue Star" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748499325/qmggj7mlxmis2x1eddjl.png" alt="Daikin" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748499375/cpjc8tni1os8ian8wkm9.png" alt="Hettich" loading="lazy" height="34">
+    <!-- dupe -->
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748503284/jhtrxw1aw5uklkr90ubj.png" alt="Hafele" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748499481/mccmrn5mcl0o19nmgwau.png" alt="Kohler" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748499520/i0qgkk6awufi2lon457p.png" alt="Merino" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748504115/ndn00ofonxalqnmqylww.png" alt="Jaquar" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748500673/qklsogsrfwdjzomzbd5v.png" alt="Asian Paints" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748504212/hpgg1vlteglhjq5tqket.png" alt="Blue Star" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748499325/qmggj7mlxmis2x1eddjl.png" alt="Daikin" loading="lazy" height="34">
+    <img class="pt-logo" src="https://res.cloudinary.com/dnvm8vh2a/image/upload/v1748499375/cpjc8tni1os8ian8wkm9.png" alt="Hettich" loading="lazy" height="34">
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="c">
+    <div class="ft-main">
+      <div class="ft-brand">
+        <img src="pictures/logo/logo-white.svg" alt="NextGen Interiors and Architectures logo" loading="eager">
+        <p>Transforming spaces into extraordinary environments. Trusted by Nepal's leading hotels, residences, and businesses since 2018.</p>
+        <div class="ft-social">
+          <a href="#" class="ft-soc-btn" title="Facebook">f</a>
+          <a href="#" class="ft-soc-btn" title="Instagram">in</a>
+          <a href="https://wa.me/9849151220" class="ft-soc-btn" title="WhatsApp" target="_blank">w</a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="service-interior.html">Interior Design</a></li>
+          <li><a href="service-architecture.html">Architecture</a></li>
+          <li><a href="service-turnkey.html">Turnkey Projects</a></li>
+          <li><a href="service-landscaping.html">Landscaping</a></li>
+          <li><a href="service-landscaping.html">DPR Reports</a></li>
+          <li><a href="portfolio.html">Our Portfolio</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Contact</h4>
+        <div class="ft-ci"><span class="ft-ci-i">📍</span><div class="ft-ci-t">Baluwatar, Kathmandu<br>Bagmati Province, Nepal</div></div>
+        <div class="ft-ci"><span class="ft-ci-i">📞</span><div class="ft-ci-t"><a href="tel:9849151220">+977 9849151220</a></div></div>
+        <div class="ft-ci"><span class="ft-ci-i">📧</span><div class="ft-ci-t"><a href="mailto:info@nextgeninterior.com">info@nextgeninterior.com</a></div></div>
+        <div class="ft-ci"><span class="ft-ci-i">🕐</span><div class="ft-ci-t">8:00am – 9:00pm<br>Every Day</div></div>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-copy">© 2025 All Rights Reserved — NextGen Interior Pvt. Ltd.</p>
+      <p class="ft-made">Baluwatar, Kathmandu, Nepal</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Cursor
+const cur=document.getElementById('cur'),cr=document.getElementById('cur-r');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function a(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(a);})();
+document.querySelectorAll('a,button,.sv-card,.proj-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='28px';cur.style.height='28px';cur.style.background='rgba(54,159,206,.15)';cur.style.border='1px solid #369fce';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';cur.style.background='#369fce';cur.style.border='none';});
+});
+
+// Nav scroll
+const nb=document.getElementById('nb');
+window.addEventListener('scroll',()=>nb.classList.toggle('s',scrollY>50),{passive:true});
+
+// Mobile menu
+function openMM(){document.getElementById('mm').classList.add('open');document.body.style.overflow='hidden';}
+function closeMM(){document.getElementById('mm').classList.remove('open');document.body.style.overflow='';}
+
+// Hero slideshow
+let si=0;
+const slides=document.querySelectorAll('.h-slide');
+const dots=document.querySelectorAll('.h-dot');
+const nums=['01','02','03','04'];
+function goSlide(n){
+  slides[si].classList.remove('on');dots[si].classList.remove('on');
+  si=n;
+  slides[si].classList.add('on');dots[si].classList.add('on');
+  document.getElementById('hNum').textContent=nums[si];
+}
+setInterval(()=>goSlide((si+1)%slides.length),5500);
+
+// Scroll reveal
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('v'),+e.target.dataset.d||0);obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.rev').forEach((el,i)=>{el.dataset.d=(i%5)*80;obs.observe(el);});
+
+// Testimonial slider
+let ti=0;
+const tt=document.getElementById('tTrack');
+const tc=tt.querySelectorAll('.test-c');
+function vis(){return window.innerWidth<768?1:window.innerWidth<1024?2:3;}
+function tSlide(d){
+  ti=Math.max(0,Math.min(ti+d,tc.length-vis()));
+  const w=tc[0].getBoundingClientRect().width+24;
+  tt.style.transform=`translateX(-${ti*w}px)`;
+}
+window.addEventListener('resize',()=>tSlide(0),{passive:true});
+</script>
+</body>
+</html>
